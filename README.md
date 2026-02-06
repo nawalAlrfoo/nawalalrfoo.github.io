@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+[README.md](https://github.com/user-attachments/files/23556158/README.md)
+>>>>>>> 29b515c082aed32b914650a666dff9a5ad68b36d
 # mev2 - Personal Portfolio using Bootstrap
 
 ## Project Overview 
