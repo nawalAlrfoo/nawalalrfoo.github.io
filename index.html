@@ -20,6 +20,8 @@
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="assest/styles/style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -37,7 +39,7 @@
       <a href="#EDUCATION">EDUCATION</a>
       <a href="#TECHNICAL_SKILLS">SKILLS</a>
       <a href="#KEY_APPLIED_PROJECTS">PROJECTS</a>
-      <a href="https://forms.gle/e24EKz7o4MCKY4qz5">CONTACT</a>
+      <a href="#CONTACT_ME">CONTACT</a>
     </div>
   </nav>
 
@@ -52,13 +54,13 @@
       <img src="assest/imgs/myphoto.jpeg" alt="Profile Photo" loading="lazy">
     </div>
 
-    <div class="hero-text">
+     <div class="hero-text">
       <h2>Nawal Sufyan Mubarak Alrfoo</h2>
       <h3>Junior Developer & UI/UX Designer</h3>
 
-      <a 
+     <a 
         class="btn btn-custom"
-        href="https://forms.gle/e24EKz7o4MCKY4qz5"
+        href="#CONTACT_ME"
         target="_blank"
         rel="noopener"
       >
@@ -66,6 +68,7 @@
         Contact Me
       </a>
     </div>
+    
   </section>
 
   <!-- ABOUT -->
@@ -210,6 +213,35 @@
 
 </main>
 
+
+<!-- Contact Me -->
+<section id="CONTACT_ME" class="contact">
+  <h2>CONTACT ME</h2>
+  <form id="contact-form" class="contact-form">
+    <div class="input-group">
+      <label>Your Name</label>
+      <input type="text" name="user_name" placeholder="Enter your name" required>
+    </div>
+
+    <div class="input-group">
+      <label>Email Address</label>
+      <input type="email" name="user_email" placeholder="Enter your email" required>
+    </div>
+
+    <div class="input-group">
+      <label>Your Message</label>
+      <textarea name="message" rows="5" placeholder="Write your message..." required></textarea>
+    </div>
+
+    <button id="submit-btn" type="submit" class="btn-custom">
+      <i class="fa-solid fa-paper-plane"></i>
+      <span class="btn-text">Send Message</span>
+    </button>
+
+    <div id="form-message" class="form-message"></div>
+  </form>
+</section>
+
 <footer>
   <p>
     <a href="https://linkedin.com/in/nawal-alrfoo-344984319" target="_blank" rel="noopener">
@@ -221,6 +253,7 @@
     </a>
   </p>
 </footer>
+
 
 <script src="assest/scripts/bootstrap.bundle.min.js"></script>
 <script src="assest/scripts/menu.js"></script>
