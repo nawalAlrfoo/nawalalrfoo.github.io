@@ -9,7 +9,7 @@
 }
 
 :root {
-  /* Light theme colors */
+  /* Light theme colors - Dark Blue (Default) */
   --bg1: #ffffff;
   --bg2: #f3f6fa;
   --card1: #f4f7fa;
@@ -20,9 +20,15 @@
   --brand2: #9bb8d3;
   --accent: #e6c8d6;
   
+  /* Header colors */
+  --headerBg: #1f2f3d;
+  --headerText: #ffffff;
+  --headerHover: #9bb8d3;
+  
   /* Gradients */
   --gradient: linear-gradient(135deg, var(--brand1), var(--brand2));
   --gradient-soft: linear-gradient(180deg, rgba(31,47,61,.20), rgba(155,184,211,.18));
+  --headerGradient: linear-gradient(135deg, #1f2f3d, #2a3f52);
   
   /* Shadows */
   --shadow: 0 20px 50px rgba(15,36,54,.12);
@@ -39,7 +45,7 @@
   --hover-lift: -6px;
 }
 
-/* Dark theme */
+/* Dark theme - Dynamic */
 body.dark {
   --bg1: #0a0f14;
   --bg2: #12181f;
@@ -50,11 +56,20 @@ body.dark {
   --brand1: #b2c9df;
   --brand2: #4a6d8c;
   --accent: #d4a5bc;
+  
+  /* Header colors for dark mode */
+  --headerBg: #0f151c;
+  --headerText: #f0f4f8;
+  --headerHover: #b2c9df;
+  
+  /* Gradients for dark mode */
+  --gradient: linear-gradient(135deg, var(--brand1), var(--brand2));
+  --headerGradient: linear-gradient(135deg, #0f151c, #1a222c);
+  
+  /* Shadows for dark mode */
   --shadow-soft: 0 12px 28px rgba(0, 0, 0, 0.4);
   
-  background: radial-gradient(1200px 700px at 15% 10%, rgba(74, 109, 140, 0.15), transparent 60%),
-              radial-gradient(900px 600px at 85% 18%, rgba(230, 200, 214, 0.08), transparent 55%),
-              #0a0f14 !important;
+  /* Background will be set by JavaScript */
 }
 
 /* Accessibility: reduce motion */
@@ -76,6 +91,7 @@ body {
   background: radial-gradient(1200px 700px at 15% 10%, rgba(155,184,211,.18), transparent 60%),
               radial-gradient(900px 600px at 85% 18%, rgba(31,47,61,.14), transparent 55%),
               linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 100%) fixed;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 body::before {
@@ -89,23 +105,29 @@ body::before {
   z-index: -1;
 }
 
-main { padding-top: 18px; }
+main { 
+  padding-top: 80px; 
+}
 
-::selection { background: rgba(155,184,211,.25); }
+::selection { 
+  background: rgba(155,184,211,.25); 
+}
 
 /* =========================
-   3. Navigation
+   3. Header Styles
 ========================= */
 header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 2000;
   padding: 12px 22px;
-  margin-bottom: 42px;
-  background: rgba(18,28,38,.85);
+  background: var(--headerBg) !important;
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255,255,255,.08);
   box-shadow: 0 15px 40px rgba(9,22,35,.2);
+  transition: background 0.3s ease;
 }
 
 .navbar {
@@ -119,7 +141,8 @@ header {
   font-size: clamp(1.6rem, 4vw, 2.2rem);
   font-weight: 900;
   letter-spacing: .6px;
-  color: rgba(255,255,255,.96);
+  color: var(--headerText) !important;
+  transition: color 0.3s ease;
 }
 
 .nav-right {
@@ -129,7 +152,7 @@ header {
 }
 
 .nav-right a {
-  color: rgba(255,255,255,.88);
+  color: var(--headerText) !important;
   text-decoration: none;
   font-weight: 500;
   font-size: 15px;
@@ -141,6 +164,7 @@ header {
 .nav-right a:hover {
   background: rgba(255,255,255,.10);
   transform: translateY(-2px);
+  color: var(--headerHover) !important;
 }
 
 /* =========================
@@ -171,7 +195,7 @@ header {
   width: 20px;
   height: 2px;
   border-radius: 999px;
-  background: rgba(255,255,255,.9);
+  background: var(--headerText) !important;
   transition: all var(--transition-speed) ease;
 }
 
@@ -202,7 +226,7 @@ section {
   box-shadow: var(--shadow-soft);
   position: relative;
   overflow: hidden;
-  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background 0.3s ease;
 }
 
 section:hover {
@@ -210,7 +234,6 @@ section:hover {
   box-shadow: var(--hover-shadow);
 }
 
-/* Dark mode section override */
 body.dark section {
   background: rgba(26, 34, 44, 0.65);
   backdrop-filter: blur(25px) saturate(180%);
@@ -227,8 +250,12 @@ section h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: color 0.3s ease;
 }
 
+/* =========================
+   6. Hero Section
+========================= */
 section.hero {
   display: flex !important;
   flex-wrap: wrap;
@@ -236,9 +263,10 @@ section.hero {
   justify-content: space-between;
   gap: 40px;
   padding: 60px 20px;
-  background: linear-gradient(135deg, #f0f4f9, #ffffff);
+  background: linear-gradient(135deg, var(--bg2), var(--bg1));
   border-radius: 28px;
   box-shadow: 0 20px 50px rgba(15,36,54,.1);
+  transition: background 0.3s ease;
 }
 
 .profile-wrap {
@@ -276,10 +304,9 @@ section.hero {
 .hero-text h3 {
   font-size: clamp(1.2rem, 2vw, 1.6rem);
   font-weight: 500;
-  color: #4a5a6a;
+  color: var(--muted);
 }
 
-/* Buttons container in hero section */
 .hero .buttons-group {
   display: flex;
   flex-wrap: wrap;
@@ -289,70 +316,8 @@ section.hero {
   width: 100%;
 }
 
-/* Hero section buttons */
-.hero .btn-custom {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px 20px;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: var(--btn-radius);
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  color: var(--text);
-  background: linear-gradient(135deg, var(--brand2), var(--brand1));
-  transition: all 0.3s ease;
-  white-space: nowrap; /* Prevent text from wrapping */
-}
-
-/* Specific styling for icon-only buttons (LinkedIn & GitHub) */
-.hero .btn-custom:has(i:only-child) {
-  padding: 12px 16px; /* Smaller padding for icon-only buttons */
-  font-size: 18px; /* Larger icon */
-}
-
-.hero .btn-custom:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(31,47,61,0.25);
-  background: linear-gradient(135deg, var(--brand1), var(--brand2));
-}
-
-/* Dark mode support */
-body.dark .hero .btn-custom {
-  color: #fff;
-}
-
-/* Responsive for hero buttons */
-@media (max-width: 768px) {
-  .hero .buttons-group {
-    gap: 10px;
-  }
-  
-  .hero .btn-custom {
-    padding: 10px 16px;
-    font-size: 14px;
-  }
-  
-  .hero .btn-custom:has(i:only-child) {
-    padding: 10px 14px;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 600px) {
-  .hero .buttons-group {
-    justify-content: center;
-  }
-  
-  .hero .btn-custom {
-    white-space: normal; /* Allow text to wrap on very small screens */
-  }
-}
 /* =========================
-   7. Buttons 
+   7. Buttons
 ========================= */
 .btn-custom, 
 #submit-btn,
@@ -363,43 +328,37 @@ body.dark .hero .btn-custom {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px 24px; /* padding عمودي موحد */
+  padding: 12px 24px;
   font-size: 16px;
   font-weight: 600;
-  line-height: 1.2; /* يضمن نفس الارتفاع */
+  line-height: 1.2;
   border-radius: var(--btn-radius);
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
   white-space: nowrap;
-  
-  /* العرض حسب المحتوى */
   width: auto;
+  color: white;
+  background: var(--gradient);
 }
 
-/* أزرار الأيقونة فقط */
+.btn-custom:hover, 
+#submit-btn:hover,
+.hero .btn-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(31,47,61,0.25);
+  background: linear-gradient(135deg, var(--brand2), var(--brand1));
+}
+
 .hero .btn-custom:has(i:only-child) {
-  padding: 12px 16px; /* padding أقل للأيقونات */
+  padding: 12px 16px;
+  font-size: 18px;
 }
 
-/* =========================
-   Responsive
-========================= */
-@media (max-width: 768px) {
-  .btn-custom, 
-  #submit-btn,
-  .hero .btn-custom,
-  .contact .btn-custom,
-  .contact #submit-btn {
-    padding: 10px 20px;
-    font-size: 15px;
-  }
-}
 /* =========================
    8. Contact Section
 ========================= */
-
 section.contact {
   flex-direction: column;
   align-items: stretch;
@@ -426,7 +385,6 @@ section.contact {
   gap: 22px;
 }
 
-/* Long input fields - restored */
 .contact-form input,
 .contact-form textarea {
   width: 100%;
@@ -439,6 +397,7 @@ section.contact {
   box-sizing: border-box;
   font-family: inherit;
   transition: all var(--transition-speed) ease;
+  color: var(--text);
 }
 
 .contact-form input {
@@ -458,7 +417,6 @@ section.contact {
   transform: translateY(-2px);
 }
 
-/* Dark mode form inputs - restored */
 body.dark .contact-form input,
 body.dark .contact-form textarea {
   background: rgba(255, 255, 255, 0.03);
@@ -466,7 +424,6 @@ body.dark .contact-form textarea {
   color: var(--text);
 }
 
-/* Buttons container for contact section */
 .contact .buttons-group {
   display: flex;
   flex-wrap: wrap;
@@ -475,117 +432,17 @@ body.dark .contact-form textarea {
   margin-top: 10px;
 }
 
-/* Submit button - restored original */
-#submit-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 14px 24px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: var(--btn-radius);
-  border: none;
-  cursor: pointer;
-  color: #fff;
-  background: var(--gradient);
-  transition: 0.3s ease;
-  width: auto;
-  min-width: fit-content;
-}
-
-#submit-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(31,47,61,0.25);
-}
-
-/* Optional second button for contact form */
-.contact .btn-custom {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 14px 24px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: var(--btn-radius);
-  border: none;
-  cursor: pointer;
-  color: var(--text);
-  background: linear-gradient(135deg, var(--brand2), var(--brand1));
-  transition: 0.3s ease;
-  width: auto;
-  min-width: fit-content;
-}
-
-.contact .btn-custom:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(31,47,61,0.25);
-  background: linear-gradient(135deg, var(--brand1), var(--brand2));
-}
-
 /* =========================
-   Responsive for Contact
+   9. Theme Toggle Buttons
 ========================= */
-@media (max-width: 768px) {
-  section.contact {
-    width: 92%;
-  }
-
-  .contact-header {
-    padding: 24px;
-  }
-
-  .contact-form {
-    padding: 0 24px 24px;
-  }
-
-  .contact-form input {
-    height: 56px;
-    padding: 16px 20px;
-  }
-
-  .contact-form textarea {
-    min-height: 200px;
-    padding: 16px 20px;
-  }
-
-  .contact .buttons-group {
-    width: 100%;
-  }
-  
-  #submit-btn,
-  .contact .btn-custom {
-    flex: 1 1 auto;
-  }
-}
-
-/* Small Mobile Devices */
-@media (max-width: 600px) {
-  .contact .buttons-group {
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  #submit-btn,
-  .contact .btn-custom {
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-  }
-}
-
-/* =========================
-   9. Theme Toggle Button
-========================= */
-.theme-toggle-floating {
+#themeToggle {
   position: fixed;
-  bottom: 30px;
+  top: 150px;
   right: 30px;
   width: 55px;
   height: 55px;
   border-radius: 50%;
-  background: #1f2f3d;
+  background: var(--gradient);
   color: #ffffff;
   display: flex !important;
   align-items: center;
@@ -598,18 +455,252 @@ body.dark .contact-form textarea {
   font-size: 1.4rem;
 }
 
-body.dark .theme-toggle-floating {
-  background: #f1c40f;
-  color: #1a222c;
-  box-shadow: 0 10px 25px rgba(241, 196, 15, 0.4);
+#themeToggle:hover {
+  transform: scale(1.1) rotate(180deg);
 }
 
-.theme-toggle-floating:hover {
-  transform: scale(1.1) rotate(15deg);
+.theme-customizer-btn {
+  position: fixed;
+  top: 215px;
+  right: 30px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: #ffffff;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999999;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-size: 1.4rem;
+}
+
+.theme-customizer-btn:hover {
+  transform: scale(1.1) rotate(180deg);
 }
 
 /* =========================
-   10. Footer
+   10. Theme Customizer Panel
+========================= */
+.theme-customizer-panel {
+  position: fixed;
+  top: 280px;
+  right: 30px;
+  background: var(--card1);
+  backdrop-filter: blur(18px);
+  border-radius: 28px;
+  padding: 25px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 999998;
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 260px;
+  animation: slideIn 0.3s ease;
+}
+
+.theme-customizer-panel.open {
+  display: flex;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.panel-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.close-panel {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.close-panel:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(90deg);
+}
+
+.panel-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.panel-section h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+}
+
+/* =========================
+   11. Color Grid
+========================= */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  justify-items: center;
+}
+
+.color-option {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.color-option:hover {
+  transform: scale(1.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.color-option.active {
+  border: 3px solid var(--text);
+  transform: scale(1.1);
+}
+
+/* Color definitions */
+.color-option[data-color="darkblue"] {
+  background: linear-gradient(135deg, #1f2f3d, #9bb8d3);
+}
+.color-option[data-color="pink"] {
+  background: linear-gradient(135deg, #f8b0d0, #d48cb0);
+}
+.color-option[data-color="lavender"] {
+  background: linear-gradient(135deg, #c7b9ff, #9f8fdf);
+}
+.color-option[data-color="green"] {
+  background: linear-gradient(135deg, #a8e6cf, #7bc9a5);
+}
+.color-option[data-color="blue"] {
+  background: linear-gradient(135deg, #9ac7ff, #6ba6e3);
+}
+.color-option[data-color="peach"] {
+  background: linear-gradient(135deg, #fccb90, #ff9a9e);
+}
+.color-option[data-color="mint"] {
+  background: linear-gradient(135deg, #5ffbf1, #86fde8);
+}
+.color-option[data-color="purple"] {
+  background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+}
+.color-option[data-color="coral"] {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+}
+
+/* =========================
+   12. Theme Mode Options
+========================= */
+.theme-mode-options {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.mode-option {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.mode-option:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.mode-option.active {
+  border-color: var(--brand1);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.mode-option i {
+  font-size: 24px;
+  color: var(--text);
+}
+
+.mode-option span {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* =========================
+   13. Reset Button
+========================= */
+.reset-theme {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 12px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.reset-theme:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.reset-theme i {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.reset-theme:hover i {
+  transform: rotate(180deg);
+}
+
+/* =========================
+   14. Footer
 ========================= */
 footer {
   padding: 24px 20px;
@@ -619,12 +710,14 @@ footer {
   box-shadow: 0 -6px 20px rgba(15,36,54,.05);
   border-radius: 16px 16px 0 0;
   margin-top: 40px;
+  transition: background 0.3s ease;
 }
 
 footer p {
   font-size: 15px;
   color: var(--muted);
   line-height: 1.6;
+  transition: color 0.3s ease;
 }
 
 footer a {
@@ -652,10 +745,61 @@ footer a:hover i {
 }
 
 /* =========================
-   11. Responsive Design
+   15. Utility Classes
 ========================= */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  backdrop-filter: blur(3px);
+  z-index: 1500;
+  display: none;
+}
 
-/* Tablet & Mobile Navigation */
+#overlay.active {
+  display: block;
+}
+
+/* =========================
+   16. Animations
+========================= */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* =========================
+   17. Responsive Design
+========================= */
 @media (max-width: 900px) {
   .menu-btn {
     display: flex;
@@ -686,8 +830,11 @@ footer a:hover i {
   }
 }
 
-/* Mobile Devices */
 @media (max-width: 768px) {
+  main { 
+    padding-top: 70px; 
+  }
+  
   section {
     width: 92%;
     padding: 24px;
@@ -705,37 +852,50 @@ footer a:hover i {
     padding: 0 24px 24px;
   }
   
-  .input-group input {
+  .contact-form input {
     height: 56px;
     padding: 16px 20px;
   }
   
-  .input-group textarea {
+  .contact-form textarea {
     min-height: 200px;
   }
   
-  #submit-btn {
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-  }
-  
-  .btn-custom {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-/* Small Mobile Devices */
-@media (max-width: 600px) {
-  .theme-toggle-floating {
-    bottom: 20px;
+  #themeToggle {
+    top: 130px;
     right: 20px;
     width: 48px;
     height: 48px;
     font-size: 1.2rem;
   }
   
+  .theme-customizer-btn {
+    top: 188px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+  }
+  
+  .theme-customizer-panel {
+    top: 246px;
+    right: 20px;
+    min-width: 220px;
+    padding: 20px;
+  }
+  
+  .color-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  
+  .color-option {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 600px) {
   .profile-wrap {
     flex: 0 0 100%;
     justify-content: center;
@@ -745,20 +905,90 @@ footer a:hover i {
     text-align: center;
     align-items: center;
   }
+  
+  .contact .buttons-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  #submit-btn,
+  .contact .btn-custom {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  #themeToggle {
+    top: 120px;
+    right: 15px;
+  }
 }
 
-/* =========================
-   12. Utility Classes
-========================= */
-#overlay {
+@media (max-width: 480px) {
+  main { 
+    padding-top: 60px; 
+  }
+  
+  #themeToggle {
+    top: 120px;
+    right: 15px;
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+  
+  .theme-customizer-btn {
+    top: 172px;
+    right: 15px;
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+  
+  .theme-customizer-panel {
+    top: 224px;
+    right: 15px;
+    min-width: 200px;
+    padding: 15px;
+  }
+  
+  .color-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  
+  .color-option {
+    width: 35px;
+    height: 35px;
+  }
+  
+  header {
+    padding: 10px 15px;
+  }
+  
+  #name {
+    font-size: 1.4rem;
+  }
+}
+
+/* Dark mode support for panel */
+body.dark .theme-customizer-panel {
+  background: rgba(26, 34, 44, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.dark .mode-option {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Notification style */
+.theme-notification {
   position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.45);
-  backdrop-filter: blur(3px);
-  z-index: 1500;
-  display: none;
-}
-
-#overlay.active {
-  display: block;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  color: white;
+  z-index: 999999;
+  animation: slideIn 0.3s ease;
 }
