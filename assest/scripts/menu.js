@@ -1,3 +1,17 @@
+
+
+  
+  document.querySelectorAll('section:not(.hero) h2').forEach(title => {
+    const section = title.parentElement;
+    const content = section.querySelector('.section-content');
+    content.style.display = 'none'; // مخفي افتراضياً
+    title.addEventListener('click', () => {
+      const isOpen = section.classList.toggle('is-open');
+      content.style.display = isOpen ? 'flex' : 'none';
+    });
+  });
+
+
 /* =========================
    Mobile Menu
 ========================= */
@@ -68,4 +82,98 @@ form.addEventListener("submit", function(e){
     });
 });
 
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const projectTitles = document.querySelectorAll('.projects dt');
+
+    projectTitles.forEach(title => {
+        title.addEventListener('click', () => {
+            const description = title.nextElementSibling;
+            
+            // إضافة كلاس النشاط لتغيير شكل السهم
+            title.classList.toggle('active');
+
+            // إظهار أو إخفاء المحتوى
+            if (description.style.display === "block") {
+                description.style.display = "none";
+            } else {
+                description.style.display = "block";
+            }
+        });
+    });
+});
+document.addEventListener('DOMContentLoaded', () => {
+
+  // كل السكاشن القابلة للطي (ما عدا الهيرو)
+  const collapsibleSections = document.querySelectorAll('section:not(.hero)');
+
+  collapsibleSections.forEach(section => {
+
+    const header = section.querySelector('h2, .contact-header');
+    if (!header) return;
+
+    header.style.cursor = 'pointer';
+
+    header.addEventListener('click', () => {
+      // هذا السطر يجعل السكشن يفتح أو يغلق عند كل ضغطة
+      section.classList.toggle('is-open');
+    });
+
+  });
+
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // كل السكاشن القابلة للطي (عدا الهيرو)
+  const collapsibleSections = document.querySelectorAll('section:not(.hero)');
+
+  collapsibleSections.forEach(section => {
+
+    const header = section.querySelector('h2, .contact-header');
+    if (!header) return;
+
+    header.style.cursor = 'pointer';
+
+    header.addEventListener('click', () => {
+      // فتح أو غلق السكشن
+      section.classList.toggle('is-open');
+    });
+
+  });
+
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+  
+
+    function updateToggleUI(isDark) {
+        themeToggle.innerHTML = isDark 
+            ? '<i class="fa-solid fa-sun"></i>' 
+            : '<i class="fa-solid fa-moon"></i>';
+        
+        themeToggle.style.transform = isDark ? "scale(1.1) rotate(360deg)" : "scale(1.1) rotate(0deg)";
+        
+        setTimeout(() => {
+            themeToggle.style.transform = "scale(1)";
+        }, 400);
+    }
+
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+        body.classList.add('dark');
+        updateToggleUI(true);
+    } else {
+        updateToggleUI(false);
+    }
+
+    themeToggle.addEventListener('click', () => {
+        const isDarkNow = body.classList.toggle('dark');
+        localStorage.setItem('theme', isDarkNow ? 'dark' : 'light');
+        updateToggleUI(isDarkNow);
+        console.log("is Dark Now ! ", isDarkNow); 
+    });
 });

@@ -10,7 +10,7 @@
   <title>Nawal Alrfoo</title>
 
   <!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
@@ -41,24 +41,23 @@
       <a href="#KEY_APPLIED_PROJECTS">PROJECTS</a>
       <a href="#CONTACT_ME">CONTACT</a>
     </div>
+    
   </nav>
-
   <div id="overlay" hidden></div>
 </header>
 
 <main>
 
   <!-- HERO -->
-  <section>
+  <section id="HERO" class="hero">
     <div class="profile-wrap">
       <img src="assest/imgs/myphoto.jpeg" alt="Profile Photo" loading="lazy">
     </div>
 
-     <div class="hero-text">
+    <div class="hero-text">
       <h2>Nawal Sufyan Mubarak Alrfoo</h2>
       <h3>Junior Developer & UI/UX Designer</h3>
-
-     <a 
+       <a 
         class="btn btn-custom"
         href="#CONTACT_ME"
         target="_blank"
@@ -68,178 +67,166 @@
         Contact Me
       </a>
     </div>
-    
   </section>
 
   <!-- ABOUT -->
   <section id="ABOUT">
     <h2>ABOUT</h2>
-    <p>
-      I’m a junior developer who focuses on building clean, structured projects and learning deeply through practice.<br>
-      I care about clarity, consistency, and turning ideas into practical solutions.
-    </p>
+    <div class="section-content">
+      <p>
+        I’m a junior developer who focuses on building clean, structured projects and learning deeply through practice.<br>
+        I care about clarity, consistency, and turning ideas into practical solutions.
+      </p>
+    </div>
   </section>
 
   <!-- EDUCATION -->
   <section id="EDUCATION">
     <h2>EDUCATION</h2>
-    <ul class="square">
-      <li>University: Tafila Technical University (TTU)</li>
-      <li>Major: Smart Devices Computing</li>
-      <li>Academic Year: Third Year (Ongoing)</li>
-      <li>Cumulative GPA: 85.72% (Ranked among the top students in the major)</li>
-    </ul>
+    <div class="section-content">
+      <ul class="square">
+        <li>University: Tafila Technical University (TTU)</li>
+        <li>Major: Smart Devices Computing</li>
+        <li>Academic Year: Third Year (Ongoing)</li>
+        <li>Cumulative GPA: 85.72% (Ranked among the top students in the major)</li>
+      </ul>
+    </div>
   </section>
 
   <!-- TECHNICAL SKILLS -->
   <section id="TECHNICAL_SKILLS">
     <h2>TECHNICAL SKILLS</h2>
-    <ul class="square">
-      <li>Programming: C++, Java, Kotlin, C#, Python</li>
-      <li>Web: HTML, CSS, JavaScript, MySQL</li>
-      <li>Mobile: Android Studio, XML Layouts</li>
-      <li>Databases: SQL Server, MS Access, MySQL</li>
-      <li>Tools: Visual Studio, VS Code, Eclipse, Git, GitHub</li>
-      <li>Design & UX: Wireframing, Prototyping, Canva</li>
-    </ul>
+    <div class="section-content">
+      <ul class="square">
+        <li>Programming: C++, Java, Kotlin, C#, Python</li>
+        <li>Web: HTML, CSS, JavaScript, MySQL</li>
+        <li>Mobile: Android Studio, XML Layouts</li>
+        <li>Databases: SQL Server, MS Access, MySQL</li>
+        <li>Tools: Visual Studio, VS Code, Eclipse, Git, GitHub</li>
+        <li>Design & UX: Wireframing, Prototyping, Canva</li>
+      </ul>
+    </div>
   </section>
 
   <!-- KEY APPLIED PROJECTS -->
   <section id="KEY_APPLIED_PROJECTS">
     <h2>KEY APPLIED PROJECTS</h2>
-    <dl class="projects">
+    <div class="section-content">
+      <dl class="projects">
+        <dt>Green Fantasia Gifts (ASP.NET Core MVC)</dt>
+        <dd>
+          A specialized web application that offers plants as meaningful gifts, categorized by occasions and emotions.<br>
+          Built using ASP.NET Core MVC with clean architecture, data validation, and responsive UI.<br>
+          <a class="project-link" href="https://github.com/nawalAlrfoo/GreenFantasiaGifts.AspNet" target="_blank">View on GitHub</a>
+        </dd>
 
-      <dt>Green Fantasia Gifts (ASP.NET Core MVC)</dt>
-      <dd>
-        A specialized web application that offers plants as meaningful and expressive gifts,
-        categorized by occasions and emotions such as joy, apology, congratulations, and support.
-        <br>
-        Built using ASP.NET Core MVC with clean architecture, data validation (DataAnnotations),
-        and a responsive user interface.
-        <br>
-        <a class="project-link" href="https://github.com/nawalAlrfoo/GreenFantasiaGifts.AspNet" target="_blank">
-          View on GitHub
-        </a>
-      </dd>
+        <dt>CPU Scheduling Simulator (C#)</dt>
+        <dd>
+          WinForms app implementing FCFS, SJF, Priority, Round Robin, and Multilevel Queue scheduling.<br>
+          <a class="project-link" href="https://github.com/nawalAlrfoo/SchedulerDemo" target="_blank">View on GitHub</a>
+        </dd>
 
-      <dt>CPU Scheduling Simulator (C#)</dt>
-      <dd>
-        WinForms application implementing FCFS, SJF, Priority, Round Robin,
-        and Multilevel Queue scheduling algorithms.
-        <br>
-        <a class="project-link" href="https://github.com/nawalAlrfoo/SchedulerDemo" target="_blank">
-          View on GitHub
-        </a>
-      </dd>
+        <dt>Banker’s Algorithm Simulator (C#)</dt>
+        <dd>
+          Deadlock avoidance simulator with safe-state detection and resource allocation.<br>
+          <a class="project-link" href="https://github.com/nawalAlrfoo/BankerDemo" target="_blank">View on GitHub</a>
+        </dd>
 
-      <dt>Banker’s Algorithm Simulator (C#)</dt>
-      <dd>
-        Deadlock avoidance simulator implementing the Banker’s Algorithm
-        with safe-state detection and resource allocation management.
-        <br>
-        <a class="project-link" href="https://github.com/nawalAlrfoo/BankerDemo" target="_blank">
-          View on GitHub
-        </a>
-      </dd>
+        <dt>Student Assistant (C# WinForms)</dt>
+        <dd>
+          Desktop app analyzing student IDs and providing academic info for IT students at TTU.<br>
+          <a class="project-link" href="https://github.com/nawalAlrfoo/Student-Assistant-WinForms" target="_blank">View on GitHub</a>
+        </dd>
 
-      <dt>Student Assistant (C# WinForms)</dt>
-      <dd>
-        Desktop application that analyzes student ID numbers and provides
-        academic information for IT students at Tafila Technical University.
-        <br>
-        <a class="project-link" href="https://github.com/nawalAlrfoo/Student-Assistant-WinForms" target="_blank">
-          View on GitHub
-        </a>
-      </dd>
+        <dt>Bank Management System (Java)</dt>
+        <dd>
+          Object-Oriented banking system with account management, transactions, and role-based access.<br>
+          <a class="project-link" href="https://github.com/nawalAlrfoo/BanksAccount-" target="_blank">View on GitHub</a>
+        </dd>
 
-      <dt>Bank Management System (Java)</dt>
-      <dd>
-        Object-Oriented banking system with account management, transactions,
-        commission handling, and role-based access control.
-        <br>
-        <a class="project-link" href="https://github.com/nawalAlrfoo/BanksAccount-" target="_blank">
-          View on GitHub
-        </a>
-      </dd>
-
-      <dt>Whack-a-Mole Game (C# WinForms)</dt>
-      <dd>
-        A simple interactive game inspired by the classic Whack-a-Mole concept.
-        Click the mole as fast as possible to score points before time runs out.
-        <br>
-        <a class="project-link" href="https://github.com/nawalAlrfoo/Whack-a-Mole" target="_blank">
-          View on GitHub
-        </a>
-      </dd>
-
-    </dl>
+        <dt>Whack-a-Mole Game (C# WinForms)</dt>
+        <dd>
+          Interactive game inspired by Whack-a-Mole concept. Click the mole fast to score points.<br>
+          <a class="project-link" href="https://github.com/nawalAlrfoo/Whack-a-Mole" target="_blank">View on GitHub</a>
+        </dd>
+      </dl>
+    </div>
   </section>
 
   <!-- ADDITIONAL PROJECTS -->
   <section id="ADDITIONAL_PROJECTS">
     <h2>ADDITIONAL PROJECTS</h2>
-    <ul>
-      <li>Zoo Ticket Booking System (Java): OOP-based booking simulation.</li>
-      <li>Fake News Detection Model (Python): ML model to classify news using Scikit-learn, Pandas, TF-IDF.</li>
-      <li>Note App (Kotlin): Simple Android note-taking app with intuitive interface.</li>
-      <li>Cinema Booking System (C#): Windows Forms + SQL Server.</li>
-    </ul>
+    <div class="section-content">
+      <ul>
+        <li>Zoo Ticket Booking System (Java): OOP-based booking simulation.</li>
+        <li>Fake News Detection Model (Python): ML model to classify news using Scikit-learn, Pandas, TF-IDF.</li>
+        <li>Note App (Kotlin): Simple Android note-taking app with intuitive interface.</li>
+        <li>Cinema Booking System (C#): Windows Forms + SQL Server.</li>
+      </ul>
+    </div>
   </section>
 
   <!-- COURSES & CERTIFICATIONS -->
   <section id="COURSES_CERTIFICATIONS">
     <h2>COURSES & CERTIFICATIONS</h2>
-    <ul>
-      <li>Android (Kotlin & XML), UI/UX with Canva, Front-End (HTML/CSS/JS).</li>
-      <li>Advanced C#, AI, OS, Databases, Web Programming.</li>
-      <li>ODC (Conflict Resolution, PM), BDC "Irada" (2023), King Abdullah II Youth Center (Facilitation, 2023), Communication Skills (2023).</li>
-    </ul>
+    <div class="section-content">
+      <ul>
+        <li>Android (Kotlin & XML), UI/UX with Canva, Front-End (HTML/CSS/JS).</li>
+        <li>Advanced C#, AI, OS, Databases, Web Programming.</li>
+        <li>ODC (Conflict Resolution, PM), BDC "Irada" (2023), King Abdullah II Youth Center (Facilitation, 2023), Communication Skills (2023).</li>
+      </ul>
+    </div>
   </section>
 
   <!-- ACHIEVEMENTS & AWARDS -->
   <section id="ACHIEVEMENTS_AWARDS">
     <h2>ACHIEVEMENTS & AWARDS</h2>
-    <p>Certificate of Appreciation as the Top Student in Smart Devices Computing at TTU.</p>
+    <div class="section-content">
+      <p>Certificate of Appreciation as the Top Student in Smart Devices Computing at TTU.</p>
+    </div>
   </section>
 
   <!-- LANGUAGES -->
   <section id="LANGUAGES_INTERESTS">
     <h2>LANGUAGES & INTERESTS</h2>
-    <ul class="square">
-      <li>Arabic: Native</li>
-      <li>English – Improving via practice.</li>
-    </ul>
+    <div class="section-content">
+      <ul class="square">
+        <li>Arabic: Native</li>
+        <li>English – Improving via practice.</li>
+      </ul>
+    </div>
   </section>
 
 </main>
 
-
 <!-- Contact Me -->
 <section id="CONTACT_ME" class="contact">
   <h2>CONTACT ME</h2>
-  <form id="contact-form" class="contact-form">
-    <div class="input-group">
-      <label>Your Name</label>
-      <input type="text" name="user_name" placeholder="Enter your name" required>
-    </div>
+  <div class="section-content">
+    <form id="contact-form" class="contact-form">
+      <div class="input-group">
+        <label>Your Name</label>
+        <input type="text" name="user_name" placeholder="Enter your name" required>
+      </div>
 
-    <div class="input-group">
-      <label>Email Address</label>
-      <input type="email" name="user_email" placeholder="Enter your email" required>
-    </div>
+      <div class="input-group">
+        <label>Email Address</label>
+        <input type="email" name="user_email" placeholder="Enter your email" required>
+      </div>
 
-    <div class="input-group">
-      <label>Your Message</label>
-      <textarea name="message" rows="5" placeholder="Write your message..." required></textarea>
-    </div>
+      <div class="input-group">
+        <label>Your Message</label>
+        <textarea name="message" rows="5" placeholder="Write your message..." required></textarea>
+      </div>
 
-    <button id="submit-btn" type="submit" class="btn-custom">
-      <i class="fa-solid fa-paper-plane"></i>
-      <span class="btn-text">Send Message</span>
-    </button>
+      <button id="submit-btn" type="submit" class="btn-custom">
+        <i class="fa-solid fa-paper-plane"></i>
+        <span class="btn-text">Send Message</span>
+      </button>
 
-    <div id="form-message" class="form-message"></div>
-  </form>
+      <div id="form-message" class="form-message"></div>
+    </form>
+  </div>
 </section>
 
 <footer>
@@ -254,9 +241,13 @@
   </p>
 </footer>
 
-
 <script src="assest/scripts/bootstrap.bundle.min.js"></script>
 <script src="assest/scripts/menu.js"></script>
 
+<!-- Collapsible Sections JS -->
+
+<button id="themeToggle" class="theme-toggle-floating">
+    <i class="fa-solid fa-moon"></i>
+</button>
 </body>
 </html>

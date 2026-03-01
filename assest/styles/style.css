@@ -1,27 +1,27 @@
 /* =========================
    Reset + Theme
 ========================= */
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
 }
 
-:root{
+:root {
   /* Colors */
-  --bg1:#ffffff;
-  --bg2:#f3f6fa;
+  --bg1: #ffffff;
+  --bg2: #f3f6fa;
 
-  --card1:#f4f7fa;
-  --card2:#e9f0f6;
+  --card1: #f4f7fa;
+  --card2: #e9f0f6;
 
-  --text:#1f2a33;
-  --muted:#6c7a86;
+  --text: #1f2a33;
+  --muted: #6c7a86;
 
-  --brand1:#1f2f3d;
-  --brand2:#9bb8d3;
-  --accent:#e6c8d6;
+  --brand1: #1f2f3d;
+  --brand2: #9bb8d3;
+  --accent: #e6c8d6;
 
   --gradient: linear-gradient(135deg, var(--brand1), var(--brand2));
   --gradient-soft: linear-gradient(180deg, rgba(31,47,61,.20), rgba(155,184,211,.18));
@@ -44,40 +44,37 @@
 /* =========================
    Page
 ========================= */
-body{
+body {
   color: var(--text);
   font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   background:
     radial-gradient(1200px 700px at 15% 10%, rgba(155,184,211,.18), transparent 60%),
     radial-gradient(900px 600px at 85% 18%, rgba(31,47,61,.14), transparent 55%),
     linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 100%) fixed;
 }
 
-body::before{
-  content:"";
+body::before {
+  content: "";
   position: fixed;
-  top:-200px;
-  left:-200px;
-  width:600px;
-  height:600px;
+  top: -200px;
+  left: -200px;
+  width: 600px;
+  height: 600px;
   background: radial-gradient(circle, rgba(230,200,214,.25), transparent 70%);
-  z-index:-1;
+  z-index: -1;
 }
 
-main{ padding-top: 18px; }
+main { padding-top: 18px; }
 
-::selection{
-  background: rgba(155,184,211,.25);
-}
+::selection { background: rgba(155,184,211,.25); }
 
 /* =========================
    Header + Nav
 ========================= */
-header{
+header {
   position: sticky;
   top: 0;
   z-index: 2000;
@@ -87,31 +84,29 @@ header{
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255,255,255,.08);
   box-shadow: 0 15px 40px rgba(9,22,35,.2);
-  will-change: transform;
 }
 
-.navbar{
+.navbar {
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap: 14px;
 }
 
-#name{
+#name {
   font-size: clamp(1.6rem, 4vw, 2.2rem);
   font-weight: 900;
   letter-spacing: .6px;
   color: rgba(255,255,255,.96);
 }
 
-/* Nav Links */
-.nav-right{
+.nav-right {
   display:flex;
   align-items:center;
   gap: 12px;
 }
 
-.nav-right a{
+.nav-right a {
   color: rgba(255,255,255,.88);
   text-decoration:none;
   font-weight: 500;
@@ -121,55 +116,55 @@ header{
   transition: all var(--transition-speed) ease;
 }
 
-.nav-right a:hover{
+.nav-right a:hover {
   background: rgba(255,255,255,.10);
   transform: translateY(-2px);
 }
 
 /* =========================
-   Mobile Menu Button
+   Responsive Navbar
 ========================= */
-.menu-btn{
-  position: relative;
-  width: 42px;
-  height: 42px;
-  border-radius: var(--btn-radius);
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.06);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all var(--transition-speed) ease;
-}
 
-.menu-btn:hover{
-  transform: translateY(-2px);
-  background: rgba(255,255,255,.12);
-  box-shadow: 0 12px 28px rgba(9,22,35,.35);
-}
+@media (max-width: 900px){
 
-.menu-btn span{
-  position: absolute;
-  width: 20px;
-  height: 2px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.9);
-  transition: all var(--transition-speed) ease;
-}
+  .menu-btn{
+    display:flex;
+  }
 
-.menu-btn span:nth-child(1){ transform: translateY(-6px); }
-.menu-btn span:nth-child(2){ transform: translateY(0); }
-.menu-btn span:nth-child(3){ transform: translateY(6px); }
+  .nav-right{
+    position: absolute;
+    top: 70px;
+    right: 22px;
+    width: 220px;
+    flex-direction: column;
+    background: rgba(18,28,38,.95);
+    backdrop-filter: blur(18px);
+    border-radius: var(--radius);
+    padding: 18px;
+    gap: 12px;
+    box-shadow: 0 20px 50px rgba(9,22,35,.4);
 
-.menu-btn.open span:nth-child(1){ transform: rotate(45deg); }
-.menu-btn.open span:nth-child(2){ opacity: 0; }
-.menu-btn.open span:nth-child(3){ transform: rotate(-45deg); }
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all var(--transition-speed) ease;
+  }
+
+  .nav-right.open{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav-right a{
+    width: 100%;
+  }
+} 
 
 /* =========================
    Sections
 ========================= */
-section{
+section {
   width: 84%;
   margin: 0 auto 34px;
   padding: 34px;
@@ -189,21 +184,14 @@ section{
   transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
-section:hover{
+section:hover {
   transform: translateY(var(--hover-lift));
   box-shadow: var(--hover-shadow);
 }
 
-section::after{
-  content:"";
-  position:absolute;
-  left:0; top:0;
-  width: 6px;
-  height:100%;
-  background: var(--gradient-soft);
-}
-
-/* Titles */
+/* =========================
+   Titles
+========================= */
 section h2{
   width: 100%;
   font-weight: 600;
@@ -211,23 +199,17 @@ section h2{
   font-size: clamp(20px, 2.5vw, 26px);
   color: var(--brand1);
   margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-section h2::after{
-  content:"";
-  display:block;
-  width: 48px;
-  height: 2px;
-  border-radius: 999px;
-  margin-top: 8px;
-  background: linear-gradient(90deg, var(--brand2), transparent);
-}
 
 /* =========================
    HERO Section
 ========================= */
 section.hero {
-  display: flex;
+  display: flex !important;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
@@ -252,14 +234,9 @@ section.hero {
   height: 160px;
   object-fit: cover;
   border-radius: 50%;
-  border: 6px solid rgba(255,255,255,0.25);
-  box-shadow: 0 12px 28px rgba(31,47,61,0.25), 0 0 0 4px rgba(155,184,211,0.1);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.profile-wrap img:hover {
-  transform: scale(1.08) rotate(-1deg);
-  box-shadow: 0 20px 40px rgba(31,47,61,0.35), 0 0 0 6px rgba(155,184,211,0.2);
+  border: 4px solid rgba(255,255,255,0.15);
+  box-shadow: 0 8px 20px rgba(31,47,61,0.15);
+  transition: none; /* لا تحريك عند hover */
 }
 
 .hero-text {
@@ -284,7 +261,6 @@ section.hero {
   color: #4a5a6a;
 }
 
-/* Buttons */
 .btn-custom {
   display: inline-flex;
   align-items: center;
@@ -301,42 +277,6 @@ section.hero {
   align-self: flex-start; 
 }
 
-/* Responsive Mobile */
-@media (max-width: 800px){
-  section.hero {
-    flex-direction: column;
-    padding: 40px 12px;
-    text-align: center;
-  }
-
-  .profile-wrap {
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-
-  .hero-text {
-    align-items: center;
-  }
-
-  .btn-custom {
-    align-self: center;
-  }
-}
-
-
-/* Responsive Mobile */
-@media (max-width: 800px){
-  .hero-text {
-    align-items:start;
-    text-align:start;
-  }
-
-  .btn-custom {
-    align-self:self-start;
-  }
-}
-
-
 .btn-custom:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(31,47,61,0.25);
@@ -344,67 +284,131 @@ section.hero {
 }
 
 /* =========================
-   Mobile Adjustments
+   Contact Card - Final Version
 ========================= */
-@media (max-width: 800px){
 
-  .menu-btn{ display:flex; }
+section.contact {
+  width: 84%;
+  margin: 0 auto 34px;
+  border-radius: var(--section-radius);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.75)),
+    linear-gradient(180deg, var(--card1) 0%, var(--card2) 100%);
+  border: 1px solid rgba(255,255,255,.6);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  transition: all var(--transition-speed) ease;
+}
 
-  section{
-    width: 92%;
-    padding: 26px;
-  }
+/* نفس حركة باقي السكاشن */
+section.contact:hover {
+  transform: translateY(var(--hover-lift));
+  box-shadow: var(--hover-shadow);
+}
 
-  body.menu-open::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    background: rgba(0,0,0,.35);
-    backdrop-filter: blur(4px);
-    z-index:1500;
-  }
+/* Header */
+.contact-header {
+  padding: 30px 34px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
 
-  .nav-right{
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100dvh;
-    width: min(80vw, 320px);
-    background: rgba(20,32,44,.98);
-    backdrop-filter: blur(20px);
-    padding: 80px 24px;
-    display:flex;
-    flex-direction:column;
-    gap: 18px;
-    box-shadow: -20px 0 50px rgba(0,0,0,.35);
-    transform: translate3d(100%,0,0);
-    transition: transform var(--transition-speed) ease;
-    z-index:2000;
-  }
+.contact-header h2 {
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 600;
+  color: var(--brand1);
+}
 
-  .nav-right a{
-    font-size: 16px;
-    padding: 12px 16px;
-    border-radius: var(--btn-radius);
-  }
 
-  .nav-right.open{
-    transform: translate3d(0,0,0);
-  }
+/* =========================
+   Form Styling
+========================= */
 
-  section.hero {
-    flex-direction: column;
-    padding: 40px 12px;
-  }
+.contact-form {
+  padding: 0 34px 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
 
-  .hero-text {
-    align-items: center;
-    text-align: center;
-  }
+/* أطول مربعات إدخال */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  display: block;
+  padding: 20px 24px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(31,47,61,0.15);
+  background: linear-gradient(180deg, var(--card1), var(--card2));
+  box-sizing: border-box; 
+}
+.contact-form {
+  width: 100%;
+}
+.contact-form input {
+  height: 60px;
+}
+
+.contact-form textarea {
+  min-height: 220px;
+  resize: vertical;
+}
+
+/* Button */
+#submit-btn {
+  align-self: flex-start;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: var(--btn-radius);
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background: var(--gradient);
+  transition: 0.3s ease;
+}
+
+#submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(31,47,61,0.25);
 }
 
 /* =========================
-   Footer
+   Responsive
+========================= */
+
+@media (max-width: 768px) {
+
+  section.contact {
+    width: 92%;
+  }
+
+  .contact-header {
+    padding: 24px;
+  }
+
+  .contact-form {
+    padding: 0 24px 24px;
+  }
+
+  .contact-form input {
+    height: 56px;
+  }
+
+  .contact-form textarea {
+    min-height: 200px;
+  }
+
+  #submit-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+/* =========================
+   Footer - Original Design
 ========================= */
 footer {
   padding: 24px 20px;
@@ -445,27 +449,6 @@ footer i {
 footer a:hover i {
   color: var(--brand2);
 }
-
-.form-message{
-  font-size:14px;
-  font-weight:500;
-  margin-top:8px;
-  min-height:18px;
-}
-
-.form-message.success{
-  color: var(--brand1);
-}
-
-.form-message.error{
-  color: #b94a4a;
-}
-
-.btn-custom.loading{
-  opacity:.7;
-  pointer-events:none;
-}
-
 /* =========================
    Contact Section
 ========================= */
@@ -524,3 +507,192 @@ section.contact{
   }
 }
 
+/* =========================
+   Mobile Menu Button
+========================= */
+.menu-btn{
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--btn-radius);
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+}
+
+.menu-btn:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.12);
+  box-shadow: 0 12px 28px rgba(9,22,35,.35);
+}
+
+.menu-btn span{
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.9);
+  transition: all var(--transition-speed) ease;
+}
+
+.menu-btn span:nth-child(1){ transform: translateY(-6px); }
+.menu-btn span:nth-child(2){ transform: translateY(0); }
+.menu-btn span:nth-child(3){ transform: translateY(6px); }
+
+.menu-btn.open span:nth-child(1){ transform: rotate(45deg); }
+.menu-btn.open span:nth-child(2){ opacity: 0; }
+.menu-btn.open span:nth-child(3){ transform: rotate(-45deg); }
+
+/* =========================
+   Mobile Navigation
+========================= */
+
+.menu-btn{
+  display:none;
+  width:42px;
+  height:42px;
+  border-radius: var(--btn-radius);
+  border:1px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.08);
+  color:#fff;
+  cursor:pointer;
+  transition:all var(--transition-speed) ease;
+}
+
+.menu-btn:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.15);
+}
+
+/* Overlay */
+#overlay{
+  position:fixed;
+  inset:0;
+  background: rgba(0,0,0,.45);
+  backdrop-filter: blur(3px);
+  z-index:1500;
+}
+
+/* Mobile mode */
+@media (max-width: 900px){
+
+  .menu-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .nav-right{
+    position:fixed;
+    top:0;
+    right:-280px;
+    width:260px;
+    height:100vh;
+    background: rgba(18,28,38,.98);
+    backdrop-filter: blur(18px);
+    flex-direction:column;
+    padding:90px 24px;
+    gap:20px;
+    transition: right .35s ease;
+    z-index:2000;
+  }
+
+  .nav-right.open{
+    right:0;
+  }
+
+  .nav-right a{
+    font-size:16px;
+    width:100%;
+  }
+}
+/* =========================
+    Dark Theme & Variables
+========================= */
+body.dark {
+  --bg1: #0a0f14;
+  --bg2: #12181f;
+  --card1: #1a222c;
+  --card2: #151c25;
+  --text: #f0f4f8;
+  --muted: #a0aec0;
+  --brand1: #b2c9df;
+  --brand2: #4a6d8c;
+  --accent: #d4a5bc;
+  --shadow-soft: 0 12px 28px rgba(0, 0, 0, 0.4);
+  --section-bg: rgba(26, 34, 44, 0.65);
+  --section-border: rgba(255, 255, 255, 0.05);
+
+
+  background: 
+    radial-gradient(1200px 700px at 15% 10%, rgba(74, 109, 140, 0.15), transparent 60%),
+    radial-gradient(900px 600px at 85% 18%, rgba(230, 200, 214, 0.08), transparent 55%),
+    #0a0f14 !important; 
+}
+
+
+body.dark section {
+  background: var(--section-bg);
+  backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid var(--section-border);
+  box-shadow: var(--shadow-soft);
+}
+
+body.dark .contact-form input,
+body.dark .contact-form textarea {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text);
+}
+
+/* =========================
+    Floating Dark Mode Button (Unified)
+========================= */
+.theme-toggle-floating {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  
+  /* الوضع الافتراضي (Light) */
+  background: #1f2f3d; 
+  color: #ffffff;
+  
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999999; 
+  
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-size: 1.4rem;
+}
+
+/* التنسيق عند تفعيل الدارك مود */
+body.dark .theme-toggle-floating {
+  background: #f1c40f; /* لون الشمس الأصفر */
+  color: #1a222c;
+  box-shadow: 0 10px 25px rgba(241, 196, 15, 0.4);
+}
+
+.theme-toggle-floating:hover {
+  transform: scale(1.1) rotate(15deg);
+}
+
+/* للتلفون */
+@media (max-width: 600px) {
+  .theme-toggle-floating {
+    bottom: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+  }
+}
