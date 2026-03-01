@@ -26,7 +26,7 @@ This project is built using standard web technologies and the Bootstrap framewor
  
 You can view the deployed version of the portfolio here:
 
-[**https://nawalalrfoo.github.io/mev2/**]
+[**https://nawalalrfoo.github.io**]
 
 ---
 *Developed by: nawalAlrfoo*
